@@ -24,7 +24,7 @@ class CountryDetails extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           children: const [
             ReuseAbleRow(
-              info: "200000",
+              info: "2000",
               title: "Deaths",
             ),
             ReuseAbleRow(
