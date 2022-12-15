@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 class Onboarding extends StatelessWidget {
   const Onboarding({super.key});
@@ -68,17 +69,20 @@ class Onboarding extends StatelessWidget {
                           SizedBox(
                             width: MediaQuery.of(context).size.width * 0.02,
                           ),
-                          Container(
-                            padding: const EdgeInsets.symmetric(
-                              horizontal: 8,
-                              vertical: 8,
-                            ),
-                            decoration: BoxDecoration(
-                                color: Colors.blue[900],
-                                borderRadius: BorderRadius.circular(24)),
-                            child: const Icon(
-                              Icons.arrow_forward,
-                              color: Colors.white,
+                          InkWell(
+                            onTap: () => Get.toNamed('/homescreen'),
+                            child: Container(
+                              padding: const EdgeInsets.symmetric(
+                                horizontal: 8,
+                                vertical: 8,
+                              ),
+                              decoration: BoxDecoration(
+                                  color: Colors.blue[900],
+                                  borderRadius: BorderRadius.circular(24)),
+                              child: const Icon(
+                                Icons.arrow_forward,
+                                color: Colors.white,
+                              ),
                             ),
                           )
                         ],
