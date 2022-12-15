@@ -1,6 +1,7 @@
 import 'package:coivd_19_app/screens/home_page.dart';
 import 'package:coivd_19_app/screens/onboarding_screen.dart';
 import 'package:coivd_19_app/screens/splash_screen.dart';
+import 'package:coivd_19_app/widgets/bottomNavBar.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -26,7 +27,11 @@ class MyApp extends StatelessWidget {
           name: '/homescreen',
           page: () => const HomePage(),
         ),
-        GetPage(name: '/splash', page: () => const SplashScreen())
+        GetPage(name: '/splash', page: () => const SplashScreen()),
+        GetPage(
+          name: '/bottomNavBar',
+          page: () => const GoogleNav(),
+        )
       ],
       initialRoute: '/splash',
     );

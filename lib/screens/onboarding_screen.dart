@@ -70,7 +70,7 @@ class Onboarding extends StatelessWidget {
                             width: MediaQuery.of(context).size.width * 0.02,
                           ),
                           InkWell(
-                            onTap: () => Get.toNamed('/homescreen'),
+                            onTap: () => Get.toNamed('/bottomNavBar'),
                             child: Container(
                               padding: const EdgeInsets.symmetric(
                                 horizontal: 8,

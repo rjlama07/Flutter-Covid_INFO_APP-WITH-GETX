@@ -16,6 +16,14 @@ class SplashScreen extends StatelessWidget {
           Center(
             child: Lottie.asset('assets/images/splash.json',
                 height: MediaQuery.of(context).size.height * 0.3),
+          ),
+          SizedBox(
+            height: MediaQuery.of(context).size.height * 0.1,
+          ),
+          const Text(
+            "Covid-19\nTracking Now",
+            textAlign: TextAlign.center,
+            style: TextStyle(fontWeight: FontWeight.bold, fontSize: 28),
           )
         ],
       ),
