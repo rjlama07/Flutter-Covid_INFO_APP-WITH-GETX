@@ -15,11 +15,9 @@ class GoogleNav extends StatelessWidget {
       body: Obx(() => SafeArea(
             child: Padding(
               padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 12),
-              child: SingleChildScrollView(
-                child: IndexedStack(
-                  index: controller.selectedIndex.value,
-                  children: controller.screens,
-                ),
+              child: IndexedStack(
+                index: controller.selectedIndex.value,
+                children: controller.screens,
               ),
             ),
           )),

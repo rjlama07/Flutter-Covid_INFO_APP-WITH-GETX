@@ -105,14 +105,9 @@ class HomePage extends StatelessWidget {
                 ],
               );
             } else {
-              return Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Center(
-                    child: Lottie.asset("assets/images/progessindicator.json",
-                        height: MediaQuery.of(context).size.height * 0.2),
-                  ),
-                ],
+              return Center(
+                child: Lottie.asset("assets/images/progessindicator.json",
+                    height: MediaQuery.of(context).size.height * 0.3),
               );
             }
           },
