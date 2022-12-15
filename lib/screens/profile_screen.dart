@@ -1,3 +1,4 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 
 class ProfileScreen extends StatelessWidget {
@@ -16,7 +17,7 @@ class ProfileScreen extends StatelessWidget {
             child: Column(
               children: [
                 const CircleAvatar(
-                  backgroundImage: NetworkImage(
+                  backgroundImage: CachedNetworkImageProvider(
                       'https://scontent.fktm8-1.fna.fbcdn.net/v/t39.30808-6/309605804_3394726097415920_6566651795415911080_n.jpg?stp=cp6_dst-jpg&_nc_cat=106&ccb=1-7&_nc_sid=09cbfe&_nc_ohc=vt3pyJceKu0AX83YDAw&tn=1T-70miNdbisB3Xi&_nc_ht=scontent.fktm8-1.fna&oh=00_AfCfTGmC6TtjF-nNz2GcdbwMr1xmLfY-RXHylvsJf3HsdQ&oe=63A0B805'),
                   radius: 60,
                 ),
