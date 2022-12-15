@@ -1,6 +1,6 @@
 import 'package:coivd_19_app/screens/home_page.dart';
 import 'package:coivd_19_app/screens/onboarding_screen.dart';
-import 'package:coivd_19_app/screens/splash_Screen.dart';
+import 'package:coivd_19_app/screens/splash_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
