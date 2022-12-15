@@ -3,15 +3,25 @@ import 'package:coivd_19_app/widgets/countries_list.dart';
 import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
 
-class SearchPage extends StatelessWidget {
+class SearchPage extends StatefulWidget {
   const SearchPage({super.key});
 
+  @override
+  State<SearchPage> createState() => _SearchPageState();
+}
+
+class _SearchPageState extends State<SearchPage> {
+  TextEditingController controller = TextEditingController();
   @override
   Widget build(BuildContext context) {
     CountriesAPi countriesAPi = CountriesAPi();
     return Column(
       children: [
         TextField(
+          controller: controller,
+          onChanged: (value) {
+            setState(() {});
+          },
           decoration: InputDecoration(
               contentPadding: const EdgeInsets.symmetric(horizontal: 20),
               hintText: "Search with Country Name",
@@ -30,11 +40,23 @@ class SearchPage extends StatelessWidget {
                 shrinkWrap: true,
                 itemCount: snapshot.data!.length,
                 itemBuilder: (context, index) {
-                  return CountriesList(
-                    imageUrl: snapshot.data![index]['countryInfo']["flag"],
-                    countyName: snapshot.data![index]['country'],
-                    cases: snapshot.data![index]['cases'].toString(),
-                  );
+                  String name =
+                      snapshot.data![index]['country'].toString().toLowerCase();
+                  if (controller.text.isEmpty) {
+                    return CountriesList(
+                      imageUrl: snapshot.data![index]['countryInfo']["flag"],
+                      countyName: snapshot.data![index]['country'],
+                      cases: snapshot.data![index]['cases'].toString(),
+                    );
+                  } else if (controller.text.toLowerCase().contains(name)) {
+                    return CountriesList(
+                      imageUrl: snapshot.data![index]['countryInfo']["flag"],
+                      countyName: snapshot.data![index]['country'],
+                      cases: snapshot.data![index]['cases'].toString(),
+                    );
+                  } else {
+                    return Container();
+                  }
                 },
               ));
             } else {
