@@ -1,8 +1,10 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:coivd_19_app/controller/home_screen_controller.dart';
 import 'package:coivd_19_app/models/world_stats.dart';
 import 'package:coivd_19_app/resources/constrains.dart';
 
 import 'package:coivd_19_app/widgets/gridview_container.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:lottie/lottie.dart';
@@ -15,6 +17,9 @@ class HomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final User? user = FirebaseAuth.instance.currentUser;
+    final String firstName = user!.displayName!.split(" ")[0];
+    final String? imageUrl = user.photoURL;
     WorldStats worldStats = WorldStats();
     var controller = Get.put(HomeScreenController());
     return RefreshIndicator(
@@ -26,16 +31,35 @@ class HomePage extends StatelessWidget {
             SizedBox(
               height: MediaQuery.of(context).size.height * 0.05,
             ),
-            const Text(
-              "Hello, Rj Lama",
-              style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
-            ),
-            SizedBox(
-              height: MediaQuery.of(context).size.height * 0.02,
-            ),
-            const Text(
-              "Here what's cooking for you",
-              style: TextStyle(fontSize: 16, color: Colors.black45),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      "Hello, $firstName",
+                      style: const TextStyle(
+                          fontSize: 24, fontWeight: FontWeight.bold),
+                    ),
+                    SizedBox(
+                      height: MediaQuery.of(context).size.height * 0.02,
+                    ),
+                    const Text(
+                      "Here what's cooking for you",
+                      style: TextStyle(fontSize: 16, color: Colors.black45),
+                    ),
+                  ],
+                ),
+                CircleAvatar(
+                  radius: MediaQuery.of(context).size.width * 0.12,
+                  backgroundColor: Colors.purple,
+                  child: CircleAvatar(
+                    radius: MediaQuery.of(context).size.width * 0.11,
+                    foregroundImage: CachedNetworkImageProvider(imageUrl!),
+                  ),
+                )
+              ],
             ),
             SizedBox(
               height: MediaQuery.of(context).size.height * 0.02,

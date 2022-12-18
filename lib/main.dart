@@ -1,4 +1,5 @@
 import 'package:coivd_19_app/screens/home_page.dart';
+import 'package:coivd_19_app/screens/login_page.dart';
 import 'package:coivd_19_app/screens/onboarding_screen.dart';
 import 'package:coivd_19_app/screens/splash_screen.dart';
 import 'package:coivd_19_app/widgets/bottomNavBar.dart';
@@ -34,7 +35,8 @@ class MyApp extends StatelessWidget {
         GetPage(
           name: '/bottomNavBar',
           page: () => const GoogleNav(),
-        )
+        ),
+        GetPage(name: '/login', page: () => const LoginPage())
       ],
       initialRoute: '/splash',
     );

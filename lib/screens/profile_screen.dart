@@ -1,11 +1,14 @@
 import 'package:cached_network_image/cached_network_image.dart';
+import 'package:coivd_19_app/controller/firebase_controller.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 class ProfileScreen extends StatelessWidget {
   const ProfileScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
+    var controller = Get.put(LogInController());
     return Scaffold(
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -37,9 +40,13 @@ class ProfileScreen extends StatelessWidget {
           const Text(
             "Settings",
             style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
-          )
+          ),
         ],
       ),
+      persistentFooterButtons: [
+        ElevatedButton(
+            onPressed: () => controller.signOut(), child: const Text("SignOut"))
+      ],
     );
   }
 }

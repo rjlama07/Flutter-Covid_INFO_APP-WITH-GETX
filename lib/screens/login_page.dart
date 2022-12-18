@@ -7,7 +7,7 @@ class LoginPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    var controller = Get.put(FirebaseController());
+    var controller = Get.put(LogInController());
     return Scaffold(
       body: Center(
         child: ElevatedButton(

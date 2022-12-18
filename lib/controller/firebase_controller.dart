@@ -2,7 +2,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:get/get.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 
-class FirebaseController extends GetxController {
+class LogInController extends GetxController {
   FirebaseAuth auth = FirebaseAuth.instance;
   GoogleSignIn googleSignIn = GoogleSignIn(scopes: ['email']);
 
@@ -15,5 +15,11 @@ class FirebaseController extends GetxController {
       idToken: googleAuthentication.idToken,
     );
     await auth.signInWithCredential(credential);
+    Get.offAllNamed("/bottomNavBar");
+  }
+
+  void signOut() async {
+    await googleSignIn.signOut();
+    Get.offAllNamed('/login');
   }
 }
