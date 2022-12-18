@@ -11,17 +11,15 @@ class SearchPage extends StatefulWidget {
 }
 
 class _SearchPageState extends State<SearchPage> {
-  TextEditingController controller = TextEditingController();
   @override
   Widget build(BuildContext context) {
+    TextEditingController controller = TextEditingController();
     CountriesAPi countriesAPi = CountriesAPi();
     return Column(
       children: [
         TextField(
           controller: controller,
-          onChanged: (value) {
-            setState(() {});
-          },
+          onChanged: (value) => controller.text += value,
           decoration: InputDecoration(
               contentPadding: const EdgeInsets.symmetric(horizontal: 20),
               hintText: "Search with Country Name",
