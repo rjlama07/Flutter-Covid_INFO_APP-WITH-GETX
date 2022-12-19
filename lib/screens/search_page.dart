@@ -19,7 +19,9 @@ class _SearchPageState extends State<SearchPage> {
       children: [
         TextField(
           controller: controller,
-          onChanged: (value) => controller.text += value,
+          onChanged: (value) {
+            setState(() {});
+          },
           decoration: InputDecoration(
               contentPadding: const EdgeInsets.symmetric(horizontal: 20),
               hintText: "Search with Country Name",

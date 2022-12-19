@@ -25,7 +25,7 @@ class SplashScreenController extends GetxController {
     } else {
       if (user != null) {
         Get.offAndToNamed('/bottomNavBar');
-      } else {
+      } else if (user == null) {
         Get.off(const LoginPage());
       }
     }

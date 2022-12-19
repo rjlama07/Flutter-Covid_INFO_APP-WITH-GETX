@@ -20,6 +20,7 @@ class LogInController extends GetxController {
 
   void signOut() async {
     await googleSignIn.signOut();
+    await auth.signOut();
     Get.offAllNamed('/login');
   }
 }
