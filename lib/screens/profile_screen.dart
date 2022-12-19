@@ -1,5 +1,6 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:coivd_19_app/controller/firebase_controller.dart';
+import 'package:coivd_19_app/controller/settings_controller.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -9,6 +10,7 @@ class ProfileScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final settingsController = Get.put(SettingsController());
     final User? user = FirebaseAuth.instance.currentUser;
     final String? imageUrl = user!.photoURL;
     var controller = Get.put(LogInController());
@@ -44,6 +46,21 @@ class ProfileScreen extends StatelessWidget {
             "Settings",
             style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
           ),
+          SizedBox(
+            height: MediaQuery.of(context).size.height * 0.05,
+          ),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              const Text("Dark Mode"),
+              Obx(() => Switch(
+                  value: settingsController.isDark.value,
+                  onChanged: ((value) {
+                    settingsController.onChanged(value);
+                    print("isTrue $value");
+                  })))
+            ],
+          )
         ],
       ),
       persistentFooterButtons: [

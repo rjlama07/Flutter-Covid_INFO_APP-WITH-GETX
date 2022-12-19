@@ -45,9 +45,13 @@ class HomePage extends StatelessWidget {
                     SizedBox(
                       height: MediaQuery.of(context).size.height * 0.02,
                     ),
-                    const Text(
+                    Text(
                       "Here what's going around the world",
-                      style: TextStyle(fontSize: 16, color: Colors.black45),
+                      style: TextStyle(
+                          fontSize: 16,
+                          color: Theme.of(context).brightness == Brightness.dark
+                              ? Colors.white54
+                              : Colors.black54),
                     ),
                   ],
                 ),

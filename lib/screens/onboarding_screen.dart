@@ -1,3 +1,4 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -6,6 +7,7 @@ class Onboarding extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final User? user = FirebaseAuth.instance.currentUser;
     return SafeArea(
       child: Scaffold(
         body: Stack(
@@ -70,7 +72,9 @@ class Onboarding extends StatelessWidget {
                             width: MediaQuery.of(context).size.width * 0.02,
                           ),
                           InkWell(
-                            onTap: () => Get.toNamed('/bottomNavBar'),
+                            onTap: () => user == null
+                                ? Get.offAllNamed("/login")
+                                : Get.toNamed('/bottomNavBar'),
                             child: Container(
                               padding: const EdgeInsets.symmetric(
                                 horizontal: 8,
