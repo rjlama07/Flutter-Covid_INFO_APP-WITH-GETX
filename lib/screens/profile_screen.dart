@@ -11,7 +11,7 @@ class ProfileScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final settingsController = Get.put(SettingsController());
+    final settingsController = Get.find<SettingsController>();
     final User? user = FirebaseAuth.instance.currentUser;
     final String? imageUrl = user!.photoURL;
     var controller = Get.put(LogInController());
