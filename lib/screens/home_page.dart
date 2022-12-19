@@ -46,7 +46,7 @@ class HomePage extends StatelessWidget {
                       height: MediaQuery.of(context).size.height * 0.02,
                     ),
                     const Text(
-                      "Here what's cooking for you",
+                      "Here what's going around the world",
                       style: TextStyle(fontSize: 16, color: Colors.black45),
                     ),
                   ],

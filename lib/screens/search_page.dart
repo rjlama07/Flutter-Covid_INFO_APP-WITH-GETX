@@ -11,9 +11,9 @@ class SearchPage extends StatefulWidget {
 }
 
 class _SearchPageState extends State<SearchPage> {
+  TextEditingController controller = TextEditingController();
   @override
   Widget build(BuildContext context) {
-    TextEditingController controller = TextEditingController();
     CountriesAPi countriesAPi = CountriesAPi();
     return Column(
       children: [

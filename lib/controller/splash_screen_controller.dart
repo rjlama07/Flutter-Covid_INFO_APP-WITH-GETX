@@ -1,5 +1,6 @@
 import 'dart:async';
 import 'package:coivd_19_app/screens/login_page.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:get/get.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
@@ -12,6 +13,8 @@ class SplashScreenController extends GetxController {
     });
   }
 
+  final User? user = FirebaseAuth.instance.currentUser;
+
   Future nextScreen() async {
     bool? newState;
     SharedPreferences prefs = await SharedPreferences.getInstance();
@@ -20,8 +23,11 @@ class SplashScreenController extends GetxController {
     if (newState == null || !newState) {
       Get.offAndToNamed('/onBoarding');
     } else {
-      // Get.offAndToNamed('/bottomNavBar');
-      Get.off(const LoginPage());
+      if (user != null) {
+        Get.offAndToNamed('/bottomNavBar');
+      } else {
+        Get.off(const LoginPage());
+      }
     }
   }
 }
