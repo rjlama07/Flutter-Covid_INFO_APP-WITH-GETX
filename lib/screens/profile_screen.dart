@@ -4,6 +4,7 @@ import 'package:coivd_19_app/controller/settings_controller.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:iconsax/iconsax.dart';
 
 class ProfileScreen extends StatelessWidget {
   const ProfileScreen({super.key});
@@ -47,7 +48,7 @@ class ProfileScreen extends StatelessWidget {
             style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
           ),
           SizedBox(
-            height: MediaQuery.of(context).size.height * 0.05,
+            height: MediaQuery.of(context).size.height * 0.04,
           ),
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -57,16 +58,49 @@ class ProfileScreen extends StatelessWidget {
                   value: settingsController.isDark.value,
                   onChanged: ((value) {
                     settingsController.onChanged(value);
-                    print("isTrue $value");
                   })))
+            ],
+          ),
+          SizedBox(
+            height: MediaQuery.of(context).size.height * 0.025,
+          ),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              const Text("Log Out"),
+              InkWell(
+                  onTap: () {
+                    showDialog(
+                      context: context,
+                      builder: (context) {
+                        return AlertDialog(
+                          title: const Text("Are you sure you want to logout?"),
+                          actions: [
+                            TextButton(
+                                onPressed: () => Get.back(),
+                                child: const Text("No")),
+                            TextButton(
+                                onPressed: () => controller.signOut(),
+                                child: const Text(
+                                  "Yes",
+                                  style: TextStyle(
+                                    color: Colors.red,
+                                    fontWeight: FontWeight.bold,
+                                  ),
+                                )),
+                          ],
+                        );
+                      },
+                    );
+                  },
+                  child: const Icon(
+                    Iconsax.logout,
+                    color: Colors.red,
+                  ))
             ],
           )
         ],
       ),
-      persistentFooterButtons: [
-        ElevatedButton(
-            onPressed: () => controller.signOut(), child: const Text("SignOut"))
-      ],
     );
   }
 }
