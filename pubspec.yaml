@@ -46,6 +46,8 @@ dependencies:
   firebase_auth: ^4.2.1
   firebase_core: ^2.4.0
   iconsax: ^0.0.8
+  hive: ^2.2.3
+  hive_flutter: ^1.1.0
 
 dev_dependencies:
   flutter_test:
