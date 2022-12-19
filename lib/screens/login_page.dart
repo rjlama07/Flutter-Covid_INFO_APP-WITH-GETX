@@ -4,12 +4,13 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:lottie/lottie.dart';
 
+import 'loading_singup.dart';
+
 class LoginPage extends StatelessWidget {
   const LoginPage({super.key});
 
   @override
   Widget build(BuildContext context) {
-    var controller = Get.put(LogInController());
     return Scaffold(
       body: SafeArea(
         child: Padding(
@@ -31,7 +32,7 @@ class LoginPage extends StatelessWidget {
                       height: MediaQuery.of(context).size.height * 0.1,
                     ),
                     InkWell(
-                      onTap: () => controller.googleSign(),
+                      onTap: () => Get.to(const LoadingSignup()),
                       child: const GoogleButton(),
                     )
                   ],
