@@ -26,15 +26,17 @@ class Grids extends StatelessWidget {
               style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 18),
             ),
             SizedBox(
-              height: MediaQuery.of(context).size.height * 0.10,
+              height: MediaQuery.of(context).size.height * 0.095,
             ),
             Row(
               mainAxisAlignment: MainAxisAlignment.end,
               children: [
                 Text(
                   info,
-                  style: const TextStyle(
-                      fontWeight: FontWeight.bold, fontSize: 18),
+                  style: TextStyle(
+                    fontWeight: FontWeight.bold,
+                    fontSize: MediaQuery.of(context).size.height * 0.025,
+                  ),
                 ),
               ],
             )

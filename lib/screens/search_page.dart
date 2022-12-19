@@ -47,12 +47,16 @@ class _SearchPageState extends State<SearchPage> {
                       imageUrl: snapshot.data![index]['countryInfo']["flag"],
                       countyName: snapshot.data![index]['country'],
                       cases: snapshot.data![index]['cases'].toString(),
+                      todaysCase:
+                          snapshot.data![index]['todayCases'].toString(),
                     );
                   } else if (controller.text.toLowerCase().contains(name)) {
                     return CountriesList(
                       imageUrl: snapshot.data![index]['countryInfo']["flag"],
                       countyName: snapshot.data![index]['country'],
                       cases: snapshot.data![index]['cases'].toString(),
+                      todaysCase:
+                          snapshot.data![index]['todayCases'].toString(),
                     );
                   } else {
                     return Container();

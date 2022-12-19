@@ -6,15 +6,19 @@ class CountriesList extends StatelessWidget {
   const CountriesList(
       {super.key,
       required this.imageUrl,
+      required this.todaysCase,
       required this.countyName,
       required this.cases});
   final String imageUrl;
   final String countyName;
   final String cases;
+  final String todaysCase;
   @override
   Widget build(BuildContext context) {
     return InkWell(
       onTap: () => Get.to(CountryDetails(
+        cases: cases,
+        todayCase: todaysCase,
         countryName: countyName,
       )),
       child: SizedBox(

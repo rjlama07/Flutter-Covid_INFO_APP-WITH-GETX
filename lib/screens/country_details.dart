@@ -3,8 +3,14 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 class CountryDetails extends StatelessWidget {
-  const CountryDetails({super.key, required this.countryName});
+  const CountryDetails(
+      {super.key,
+      required this.countryName,
+      required this.cases,
+      required this.todayCase});
   final String countryName;
+  final String todayCase;
+  final String cases;
 
   @override
   Widget build(BuildContext context) {
@@ -22,24 +28,24 @@ class CountryDetails extends StatelessWidget {
         padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 16),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
-          children: const [
+          children: [
             ReuseAbleRow(
-              info: "2000",
-              title: "Deaths",
+              info: cases,
+              title: "Total Case",
             ),
             ReuseAbleRow(
+              info: todayCase,
+              title: "Today's Case",
+            ),
+            const ReuseAbleRow(
               info: "200000",
               title: "Deaths",
             ),
-            ReuseAbleRow(
+            const ReuseAbleRow(
               info: "200000",
               title: "Deaths",
             ),
-            ReuseAbleRow(
-              info: "200000",
-              title: "Deaths",
-            ),
-            ReuseAbleRow(
+            const ReuseAbleRow(
               info: "200000",
               title: "Deaths",
             ),
