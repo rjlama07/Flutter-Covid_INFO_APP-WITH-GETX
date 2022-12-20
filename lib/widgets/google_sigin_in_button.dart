@@ -5,10 +5,13 @@ class GoogleButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    var brightness = Theme.of(context).brightness;
     return Container(
       decoration: BoxDecoration(
           border: Border.all(
-            color: Colors.black54,
+            color: brightness == Brightness.light
+                ? Colors.black54
+                : Colors.white54,
           ),
           borderRadius: BorderRadius.circular(12)),
       padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 12),

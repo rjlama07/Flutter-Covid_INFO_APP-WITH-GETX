@@ -1,4 +1,3 @@
-import 'package:coivd_19_app/controller/firebase_controller.dart';
 import 'package:coivd_19_app/widgets/google_sigin_in_button.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
