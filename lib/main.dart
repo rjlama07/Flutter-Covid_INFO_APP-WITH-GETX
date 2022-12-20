@@ -15,6 +15,7 @@ Future main() async {
   await Firebase.initializeApp();
   await Hive.initFlutter();
   await Hive.openBox("themeData");
+
   SystemChrome.setPreferredOrientations(
       [DeviceOrientation.portraitDown, DeviceOrientation.portraitUp]);
   runApp(const MyApp());
