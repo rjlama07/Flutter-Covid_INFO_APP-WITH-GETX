@@ -23,6 +23,15 @@ class _SearchPageState extends State<SearchPage> {
             setState(() {});
           },
           decoration: InputDecoration(
+              suffixIcon: controller.text.isEmpty
+                  ? null
+                  : IconButton(
+                      onPressed: () {
+                        controller.clear();
+                        setState(() {});
+                      },
+                      icon: const Icon(Icons.clear),
+                    ),
               contentPadding: const EdgeInsets.symmetric(horizontal: 20),
               hintText: "Search with Country Name",
               border:
