@@ -9,7 +9,7 @@ class CountriesList extends StatelessWidget {
       required this.todaysCase,
       required this.countyName,
       required this.cases});
-  final String imageUrl;
+  final String? imageUrl;
   final String countyName;
   final String cases;
   final String todaysCase;
@@ -28,7 +28,7 @@ class CountriesList extends StatelessWidget {
                 margin: const EdgeInsets.symmetric(vertical: 8),
                 height: 45,
                 width: 45,
-                child: Image.network(imageUrl)),
+                child: Image.network(imageUrl!)),
             SizedBox(
               width: MediaQuery.of(context).size.width * 0.05,
             ),
