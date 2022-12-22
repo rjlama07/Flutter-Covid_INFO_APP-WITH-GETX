@@ -8,19 +8,39 @@ import '../resources/api_constrants.dart';
 
 class SearchConttoller extends GetxController {
   Rx<TextEditingController> controller = TextEditingController().obs;
-  RxList<AllCountriesModel> countriesList = <AllCountriesModel>[].obs;
-  RxList<int> lar = <int>[].obs;
+  List<AllCountriesModel> countriesList = <AllCountriesModel>[];
+  RxList<AllCountriesModel> searchedCountry = <AllCountriesModel>[].obs;
   RxBool isLoading = true.obs;
+  RxBool istyping = false.obs;
 
   @override
   @override
   void onInit() {
     super.onInit();
     fetchData();
+    searchedCountry.value = countriesList;
+  }
+
+  @override
+  void dispose() {
+    super.dispose();
+    controller;
+  }
+
+  Widget searchIcon() {
+    return istyping.value == false
+        ? const Icon(Icons.search)
+        : IconButton(
+            onPressed: () {
+              emptyController();
+              istyping.value = false;
+            },
+            icon: const Icon(Icons.close));
   }
 
   void emptyController() {
     controller.value.clear();
+    searchedCountry.value = countriesList;
   }
 
   Future<void> fetchData() async {
@@ -35,5 +55,20 @@ class SearchConttoller extends GetxController {
       debugPrint("Cannot fetch API WORLD STATS");
       throw Exception('Error');
     }
+  }
+
+  void onChanged(String countryname) {
+    List<AllCountriesModel> result = <AllCountriesModel>[];
+    if (countryname.isEmpty) {
+      istyping.value = false;
+      result = countriesList;
+    } else {
+      istyping.value = true;
+      result = countriesList
+          .where((element) =>
+              element.country.toString().toLowerCase().startsWith(countryname))
+          .toList();
+    }
+    searchedCountry.value = result;
   }
 }

@@ -15,16 +15,11 @@ class SearchPage extends StatelessWidget {
         Obx(
           () => TextField(
             controller: getController.controller.value,
-            onChanged: (value) {},
+            onChanged: (value) {
+              getController.onChanged(value);
+            },
             decoration: InputDecoration(
-                suffixIcon: getController.controller.value.text.isEmpty
-                    ? null
-                    : IconButton(
-                        onPressed: () {
-                          getController.emptyController();
-                        },
-                        icon: const Icon(Icons.clear),
-                      ),
+                suffixIcon: getController.searchIcon(),
                 contentPadding: const EdgeInsets.symmetric(horizontal: 20),
                 hintText: "Search with Country Name",
                 border: OutlineInputBorder(
@@ -34,59 +29,26 @@ class SearchPage extends StatelessWidget {
         SizedBox(
           height: MediaQuery.of(context).size.height * 0.03,
         ),
-
         Obx(() => getController.isLoading.value
             ? Lottie.asset("assets/images/progessindicator.json",
                 height: MediaQuery.of(context).size.height * 0.3)
             : Expanded(
                 child: ListView.builder(
                 shrinkWrap: true,
-                itemCount: getController.countriesList.length,
+                itemCount: getController.searchedCountry.length,
                 itemBuilder: (context, index) {
-                  String name = getController.countriesList[0].country
-                      .toString()
-                      .toLowerCase();
-                  if (getController.controller.value.text.isEmpty) {
-                    return CountriesList(
-                      imageUrl:
-                          getController.countriesList[index].countryInfo?.flag,
-                      countyName:
-                          getController.countriesList[index].country.toString(),
-                      cases:
-                          getController.countriesList[index].cases.toString(),
-                      todaysCase: getController.countriesList[index].todayCases
-                          .toString(),
-                    );
-                  } else if (getController.controller.value.text
-                      .toLowerCase()
-                      .contains(name)) {
-                    return CountriesList(
-                      imageUrl:
-                          getController.countriesList[index].countryInfo?.flag,
-                      countyName:
-                          getController.countriesList[index].country.toString(),
-                      cases:
-                          getController.countriesList[index].cases.toString(),
-                      todaysCase: getController.countriesList[index].todayCases
-                          .toString(),
-                    );
-                  } else {
-                    return Container();
-                  }
+                  return CountriesList(
+                    imageUrl:
+                        getController.searchedCountry[index].countryInfo?.flag,
+                    countyName:
+                        getController.searchedCountry[index].country.toString(),
+                    cases:
+                        getController.searchedCountry[index].cases.toString(),
+                    todaysCase: getController.searchedCountry[index].todayCases
+                        .toString(),
+                  );
                 },
               )))
-        // FutureBuilder(
-        //   future: countriesAPi.fetchData(),
-        //   builder: (context, AsyncSnapshot<List<dynamic>> snapshot) {
-        //     if (snapshot.hasData) {
-        //       return
-        //     } else {
-        //       return Center(
-
-        //       );
-        //     }
-        //   },
-        // )
       ],
     );
   }
