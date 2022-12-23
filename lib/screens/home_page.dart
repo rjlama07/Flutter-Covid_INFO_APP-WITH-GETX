@@ -115,7 +115,15 @@ class HomePage extends StatelessWidget {
                             shrinkWrap: true,
                             physics: const NeverScrollableScrollPhysics(),
                             gridDelegate:
-                                const SliverGridDelegateWithFixedCrossAxisCount(
+                                SliverGridDelegateWithFixedCrossAxisCount(
+                                    crossAxisSpacing: MediaQuery.of(context)
+                                            .size
+                                            .width *
+                                        0.02,
+                                    mainAxisSpacing:
+                                        MediaQuery.of(context).size.height *
+                                            0.02,
+                                    childAspectRatio: 1,
                                     crossAxisCount: 2),
                             children: [
                               Grids(

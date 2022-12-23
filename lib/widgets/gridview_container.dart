@@ -13,7 +13,7 @@ class Grids extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: const EdgeInsets.all(4),
+      // margin: const EdgeInsets.all(4),
       decoration:
           BoxDecoration(color: color, borderRadius: BorderRadius.circular(20)),
       child: Padding(
@@ -26,7 +26,7 @@ class Grids extends StatelessWidget {
               style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 18),
             ),
             SizedBox(
-              height: MediaQuery.of(context).size.height * 0.095,
+              height: MediaQuery.of(context).size.height * 0.09,
             ),
             Row(
               mainAxisAlignment: MainAxisAlignment.end,

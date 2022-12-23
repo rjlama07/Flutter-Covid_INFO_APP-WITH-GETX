@@ -16,7 +16,7 @@ class SearchPage extends StatelessWidget {
           () => TextField(
             controller: getController.controller.value,
             onChanged: (value) {
-              getController.onChanged(value);
+              getController.onChanged(value.toLowerCase());
             },
             decoration: InputDecoration(
                 suffixIcon: getController.searchIcon(),
