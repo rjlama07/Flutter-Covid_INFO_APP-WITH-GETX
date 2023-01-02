@@ -1,3 +1,4 @@
+import 'package:coivd_19_app/resources/text_monsterrat.dart';
 import 'package:flutter/material.dart';
 
 class Grids extends StatelessWidget {
@@ -13,7 +14,6 @@ class Grids extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      // margin: const EdgeInsets.all(4),
       decoration:
           BoxDecoration(color: color, borderRadius: BorderRadius.circular(20)),
       child: Padding(
@@ -21,22 +21,20 @@ class Grids extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Text(
-              title,
-              style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 18),
-            ),
+            TextMosterrat(
+                text: title,
+                fontWeight: FontWeight.w700,
+                size: MediaQuery.of(context).size.height * 0.022),
             SizedBox(
-              height: MediaQuery.of(context).size.height * 0.09,
+              height: MediaQuery.of(context).size.height * 0.1,
             ),
             Row(
               mainAxisAlignment: MainAxisAlignment.end,
               children: [
-                Text(
-                  info,
-                  style: TextStyle(
-                    fontWeight: FontWeight.bold,
-                    fontSize: MediaQuery.of(context).size.height * 0.025,
-                  ),
+                TextMosterrat(
+                  text: info,
+                  fontWeight: FontWeight.w600,
+                  size: MediaQuery.of(context).size.height * 0.025,
                 ),
               ],
             )

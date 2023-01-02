@@ -1,6 +1,7 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:coivd_19_app/controller/firebase_controller.dart';
 import 'package:coivd_19_app/controller/settings_controller.dart';
+import 'package:coivd_19_app/resources/text_monsterrat.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -30,30 +31,34 @@ class ProfileScreen extends StatelessWidget {
                   radius: 60,
                 ),
                 SizedBox(
-                  height: MediaQuery.of(context).size.height * 0.02,
+                  height: MediaQuery.of(context).size.height * 0.03,
                 ),
-                Text(
-                  user.displayName!,
-                  style: const TextStyle(
-                      fontSize: 18, fontWeight: FontWeight.bold),
-                )
+                TextMosterrat(
+                  text: user.displayName!,
+                  size: 18,
+                  fontWeight: FontWeight.w700,
+                ),
               ],
             ),
           ),
           SizedBox(
             height: MediaQuery.of(context).size.height * 0.1,
           ),
-          const Text(
-            "Settings",
-            style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+          const TextMosterrat(
+            text: "Settings",
+            size: 18,
+            fontWeight: FontWeight.w700,
           ),
           SizedBox(
-            height: MediaQuery.of(context).size.height * 0.04,
+            height: MediaQuery.of(context).size.height * 0.035,
           ),
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              const Text("Dark Mode"),
+              const TextMosterrat(
+                text: "Dark Mode",
+                fontWeight: FontWeight.w500,
+              ),
               Obx(() => Switch(
                   value: settingsController.isDark.value,
                   onChanged: ((value) {
@@ -67,7 +72,10 @@ class ProfileScreen extends StatelessWidget {
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              const Text("Log Out"),
+              const TextMosterrat(
+                text: "Log out",
+                fontWeight: FontWeight.w500,
+              ),
               InkWell(
                   onTap: () {
                     showDialog(

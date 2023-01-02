@@ -19,6 +19,7 @@ class SearchPage extends StatelessWidget {
               getController.onChanged(value.toLowerCase());
             },
             decoration: InputDecoration(
+                hintStyle: const TextStyle(fontFamily: "Montserrat"),
                 suffixIcon: getController.searchIcon(),
                 contentPadding: const EdgeInsets.symmetric(horizontal: 20),
                 hintText: "Search with Country Name",

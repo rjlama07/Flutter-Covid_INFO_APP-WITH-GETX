@@ -1,3 +1,4 @@
+import 'package:coivd_19_app/resources/text_monsterrat.dart';
 import 'package:coivd_19_app/screens/country_details.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -35,14 +36,15 @@ class CountriesList extends StatelessWidget {
             Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Text(
-                  countyName,
-                  style: const TextStyle(fontWeight: FontWeight.bold),
+                TextMosterrat(
+                  text: countyName,
+                  size: 14,
                 ),
-                Text(
-                  cases,
-                  style: const TextStyle(fontWeight: FontWeight.w400),
-                ),
+                TextMosterrat(
+                  text: cases,
+                  fontWeight: FontWeight.w400,
+                  size: 12,
+                )
               ],
             )
           ],

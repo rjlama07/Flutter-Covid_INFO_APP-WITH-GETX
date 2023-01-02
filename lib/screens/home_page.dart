@@ -1,6 +1,7 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:coivd_19_app/controller/home_screen_controller.dart';
 import 'package:coivd_19_app/resources/constrains.dart';
+import 'package:coivd_19_app/resources/text_monsterrat.dart';
 
 import 'package:coivd_19_app/widgets/gridview_container.dart';
 import 'package:firebase_auth/firebase_auth.dart';
@@ -34,23 +35,20 @@ class HomePage extends StatelessWidget {
                 Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Text(
-                      "Hello, $firstName",
-                      style: TextStyle(
-                          fontSize: MediaQuery.of(context).size.width * 0.055,
-                          fontWeight: FontWeight.bold),
+                    TextMosterrat(
+                      text: "Hello, $firstName",
+                      fontWeight: FontWeight.w700,
+                      size: MediaQuery.of(context).size.width * 0.05,
                     ),
                     SizedBox(
-                      height: MediaQuery.of(context).size.height * 0.02,
+                      height: MediaQuery.of(context).size.height * 0.015,
                     ),
-                    Text(
-                      "Here what's going around the world",
-                      style: TextStyle(
-                          fontSize: MediaQuery.of(context).size.width * 0.035,
-                          color: Theme.of(context).brightness == Brightness.dark
-                              ? Colors.white54
-                              : Colors.black54),
-                    ),
+                    TextMosterrat(
+                        text: "Here what's going around the world",
+                        size: MediaQuery.of(context).size.width * 0.035,
+                        color: Theme.of(context).brightness == Brightness.dark
+                            ? Colors.white54
+                            : Colors.black54)
                   ],
                 ),
                 CircleAvatar(
@@ -97,14 +95,12 @@ class HomePage extends StatelessWidget {
                             chartRadius:
                                 MediaQuery.of(context).size.height * 0.12),
                         SizedBox(
-                          height: MediaQuery.of(context).size.height * 0.03,
+                          height: MediaQuery.of(context).size.height * 0.05,
                         ),
-                        Text(
-                          "Details",
-                          style: TextStyle(
-                              fontSize:
-                                  MediaQuery.of(context).size.width * 0.05,
-                              fontWeight: FontWeight.bold),
+                        TextMosterrat(
+                          text: "Details",
+                          size: MediaQuery.of(context).size.width * 0.05,
+                          fontWeight: FontWeight.w700,
                         ),
                         SizedBox(
                           height: MediaQuery.of(context).size.height * 0.02,

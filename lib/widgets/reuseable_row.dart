@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../resources/text_monsterrat.dart';
+
 class ReuseAbleRow extends StatelessWidget {
   const ReuseAbleRow({super.key, required this.title, required this.info});
   final String title;
@@ -15,12 +17,14 @@ class ReuseAbleRow extends StatelessWidget {
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              Text(
-                '$title:',
-                style:
-                    const TextStyle(fontWeight: FontWeight.bold, fontSize: 16),
+              TextMosterrat(
+                text: title,
+                fontWeight: FontWeight.w600,
               ),
-              Text(info)
+              TextMosterrat(
+                text: info,
+                fontWeight: FontWeight.w500,
+              )
             ],
           ),
           const Divider()
