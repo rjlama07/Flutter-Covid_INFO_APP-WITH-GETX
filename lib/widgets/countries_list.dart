@@ -1,3 +1,4 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:coivd_19_app/resources/text_monsterrat.dart';
 import 'package:coivd_19_app/screens/country_details.dart';
 import 'package:flutter/material.dart';
@@ -6,6 +7,7 @@ import 'package:get/get.dart';
 class CountriesList extends StatelessWidget {
   const CountriesList(
       {super.key,
+      required this.index,
       required this.imageUrl,
       required this.todaysCase,
       required this.countyName,
@@ -14,24 +16,28 @@ class CountriesList extends StatelessWidget {
   final String countyName;
   final String cases;
   final String todaysCase;
+  final int index;
   @override
   Widget build(BuildContext context) {
+    double screenWidth = MediaQuery.of(context).size.width;
+    double screenHeight = MediaQuery.of(context).size.height;
     return InkWell(
       onTap: () => Get.to(CountryDetails(
-        cases: cases,
-        todayCase: todaysCase,
-        countryName: countyName,
+        index: index,
       )),
       child: SizedBox(
         child: Row(
           children: [
             Container(
-                margin: const EdgeInsets.symmetric(vertical: 8),
-                height: 45,
-                width: 45,
-                child: Image.network(imageUrl!)),
+              margin: const EdgeInsets.symmetric(vertical: 8),
+              height: screenHeight * 0.05,
+              width: screenHeight * 0.05,
+              decoration: BoxDecoration(
+                  image: DecorationImage(
+                      image: CachedNetworkImageProvider(imageUrl!))),
+            ),
             SizedBox(
-              width: MediaQuery.of(context).size.width * 0.05,
+              width: screenWidth * 0.05,
             ),
             Column(
               crossAxisAlignment: CrossAxisAlignment.start,

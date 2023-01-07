@@ -6,7 +6,7 @@ import 'package:get/state_manager.dart';
 class HomeScreenController extends GetxController {
   List<Color> pieChartColors = [Colors.blue, Colors.green, Colors.red];
   Rx<WorldStatsModel> datas = WorldStatsModel().obs;
-  RxBool isLoading = true.obs;
+  RxBool isLoading = false.obs;
 
   @override
   void onInit() {

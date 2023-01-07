@@ -1,5 +1,6 @@
 import 'dart:convert';
 import 'package:coivd_19_app/models/all_countries_model.dart';
+import 'package:flutter/services.dart';
 import 'package:http/http.dart' as http;
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -40,10 +41,13 @@ class SearchConttoller extends GetxController {
 
   void emptyController() {
     controller.value.clear();
+    SystemChannels.textInput.invokeMethod('TextInput.hide');
     searchedCountry.value = countriesList;
   }
 
   Future<void> fetchData() async {
+    countriesList.clear();
+    isLoading.value = true;
     var response = await http.get(Uri.parse(ApiUrl.countriesList));
     var data = jsonDecode(response.body.toString());
     if (response.statusCode == 200) {

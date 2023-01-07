@@ -17,97 +17,100 @@ class ProfileScreen extends StatelessWidget {
     final String? imageUrl = user!.photoURL;
     var controller = Get.put(LogInController());
     return Scaffold(
-      body: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          SizedBox(
-            height: MediaQuery.of(context).size.height * 0.08,
-          ),
-          Center(
-            child: Column(
+      body: SingleChildScrollView(
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            SizedBox(
+              height: MediaQuery.of(context).size.height * 0.08,
+            ),
+            Center(
+              child: Column(
+                children: [
+                  CircleAvatar(
+                    backgroundImage: CachedNetworkImageProvider(imageUrl!),
+                    radius: 60,
+                  ),
+                  SizedBox(
+                    height: MediaQuery.of(context).size.height * 0.03,
+                  ),
+                  TextMosterrat(
+                    text: user.displayName!,
+                    size: 18,
+                    fontWeight: FontWeight.w700,
+                  ),
+                ],
+              ),
+            ),
+            SizedBox(
+              height: MediaQuery.of(context).size.height * 0.1,
+            ),
+            const TextMosterrat(
+              text: "Settings",
+              size: 18,
+              fontWeight: FontWeight.w700,
+            ),
+            SizedBox(
+              height: MediaQuery.of(context).size.height * 0.035,
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                CircleAvatar(
-                  backgroundImage: CachedNetworkImageProvider(imageUrl!),
-                  radius: 60,
+                const TextMosterrat(
+                  text: "Dark Mode",
+                  fontWeight: FontWeight.w500,
                 ),
-                SizedBox(
-                  height: MediaQuery.of(context).size.height * 0.03,
-                ),
-                TextMosterrat(
-                  text: user.displayName!,
-                  size: 18,
-                  fontWeight: FontWeight.w700,
-                ),
+                Obx(() => Switch(
+                    value: settingsController.isDark.value,
+                    onChanged: ((value) {
+                      settingsController.onChanged(value);
+                    })))
               ],
             ),
-          ),
-          SizedBox(
-            height: MediaQuery.of(context).size.height * 0.1,
-          ),
-          const TextMosterrat(
-            text: "Settings",
-            size: 18,
-            fontWeight: FontWeight.w700,
-          ),
-          SizedBox(
-            height: MediaQuery.of(context).size.height * 0.035,
-          ),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              const TextMosterrat(
-                text: "Dark Mode",
-                fontWeight: FontWeight.w500,
-              ),
-              Obx(() => Switch(
-                  value: settingsController.isDark.value,
-                  onChanged: ((value) {
-                    settingsController.onChanged(value);
-                  })))
-            ],
-          ),
-          SizedBox(
-            height: MediaQuery.of(context).size.height * 0.025,
-          ),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              const TextMosterrat(
-                text: "Log out",
-                fontWeight: FontWeight.w500,
-              ),
-              InkWell(
-                  onTap: () {
-                    showDialog(
-                      context: context,
-                      builder: (context) {
-                        return AlertDialog(
-                          title: const Text("Are you sure you want to logout?"),
-                          actions: [
-                            TextButton(
-                                onPressed: () => Get.back(),
-                                child: const Text("No")),
-                            TextButton(
-                                onPressed: () => controller.signOut(),
-                                child: const Text(
-                                  "Yes",
-                                  style: TextStyle(
-                                    color: Colors.red,
-                                    fontWeight: FontWeight.bold,
-                                  ),
-                                )),
-                          ],
-                        );
-                      },
-                    );
-                  },
-                  child: const Icon(
-                    Iconsax.logout,
-                    color: Colors.red,
-                  ))
-            ],
-          )
-        ],
+            SizedBox(
+              height: MediaQuery.of(context).size.height * 0.025,
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                const TextMosterrat(
+                  text: "Log out",
+                  fontWeight: FontWeight.w500,
+                ),
+                InkWell(
+                    onTap: () {
+                      showDialog(
+                        context: context,
+                        builder: (context) {
+                          return AlertDialog(
+                            title:
+                                const Text("Are you sure you want to logout?"),
+                            actions: [
+                              TextButton(
+                                  onPressed: () => Get.back(),
+                                  child: const Text("No")),
+                              TextButton(
+                                  onPressed: () => controller.signOut(),
+                                  child: const Text(
+                                    "Yes",
+                                    style: TextStyle(
+                                      color: Colors.red,
+                                      fontWeight: FontWeight.bold,
+                                    ),
+                                  )),
+                            ],
+                          );
+                        },
+                      );
+                    },
+                    child: const Icon(
+                      Iconsax.logout,
+                      color: Colors.red,
+                    ))
+              ],
+            )
+          ],
+        ),
       ),
     );
   }
