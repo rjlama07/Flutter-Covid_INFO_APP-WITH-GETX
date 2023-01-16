@@ -29,7 +29,7 @@ class SearchConttoller extends GetxController {
   }
 
   Widget searchIcon() {
-    return istyping.value == false
+    return !istyping.value
         ? const Icon(Icons.search)
         : IconButton(
             onPressed: () {

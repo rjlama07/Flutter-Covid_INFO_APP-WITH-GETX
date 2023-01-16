@@ -1,25 +1,25 @@
 class WorldStatsModel {
-  int? updated;
-  int? cases;
-  int? todayCases;
-  int? deaths;
-  int? todayDeaths;
-  int? recovered;
-  int? todayRecovered;
-  int? active;
-  int? critical;
-  int? casesPerOneMillion;
-  double? deathsPerOneMillion;
-  int? tests;
-  double? testsPerOneMillion;
-  int? population;
-  int? oneCasePerPeople;
-  int? oneDeathPerPeople;
-  int? oneTestPerPeople;
-  double? activePerOneMillion;
-  double? recoveredPerOneMillion;
-  double? criticalPerOneMillion;
-  int? affectedCountries;
+  num? updated;
+  num? cases;
+  num? todayCases;
+  num? deaths;
+  num? todayDeaths;
+  num? recovered;
+  num? todayRecovered;
+  num? active;
+  num? critical;
+  num? casesPerOneMillion;
+  num? deathsPerOneMillion;
+  num? tests;
+  num? testsPerOneMillion;
+  num? population;
+  num? oneCasePerPeople;
+  num? oneDeathPerPeople;
+  num? oneTestPerPeople;
+  num? activePerOneMillion;
+  num? recoveredPerOneMillion;
+  num? criticalPerOneMillion;
+  num? affectedCountries;
 
   WorldStatsModel(
       {this.updated,

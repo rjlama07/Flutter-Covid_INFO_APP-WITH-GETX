@@ -45,7 +45,7 @@ class GoogleNav extends StatelessWidget {
               ),
               GButton(
                 icon: Icons.person,
-                text: "Person",
+                text: "Profle",
               ),
             ]),
       ),
