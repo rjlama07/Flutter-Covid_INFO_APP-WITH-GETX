@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>997694872998-fk25af9id98j1p2jbkpdn1tb26igbnfj.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.997694872998-fk25af9id98j1p2jbkpdn1tb26igbnfj</string>
+	<key>ANDROID_CLIENT_ID</key>
+	<string>997694872998-e8qeptdr6mkroea183q6uf4s7pblv37g.apps.googleusercontent.com</string>
+	<key>API_KEY</key>
+	<string>AIzaSyBkWpVABIxD_PaR8hhhK5sUG59JSLuqiq0</string>
+	<key>GCM_SENDER_ID</key>
+	<string>997694872998</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.example.coivd19App</string>
+	<key>PROJECT_ID</key>
+	<string>corona-tracker-268bd</string>
+	<key>STORAGE_BUCKET</key>
+	<string>corona-tracker-268bd.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:997694872998:ios:9c33925f56362246d84367</string>
+</dict>
+</plist>
