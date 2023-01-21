@@ -37,7 +37,7 @@ class SearchPage extends StatelessWidget {
         Obx(() => getController.isLoading.value
             ? Expanded(
                 child: ListView.builder(
-                  itemCount: 10,
+                  itemCount: 24,
                   itemBuilder: (context, index) {
                     return Shimmer.fromColors(
                       baseColor: Colors.grey.shade700,
