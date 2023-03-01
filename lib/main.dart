@@ -3,7 +3,8 @@ import 'package:coivd_19_app/screens/home_page.dart';
 import 'package:coivd_19_app/screens/login_page.dart';
 import 'package:coivd_19_app/screens/onboarding_screen.dart';
 import 'package:coivd_19_app/screens/splash_screen.dart';
-import 'package:coivd_19_app/widgets/bottomNavBar.dart';
+import 'package:coivd_19_app/widgets/bottom_nav_bar.dart';
+
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
